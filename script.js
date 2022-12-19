@@ -5,6 +5,7 @@ const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');
 const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
+const darkModeBtn = document.getElementById('switchToDark')
 const loader = document.getElementById('loader')
 
 let apiQuotes = [];
@@ -59,8 +60,15 @@ function tweetQuote() {
     const twitterUrl =  `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent} `;
     window.open(twitterUrl, '_blank');
 }
+
+// Dark mode
+
+function darkModeApply() {
+    document.documentElement.classList.toggle('dark-mode');
+}
+
 // Event listeners
 newQuoteBtn.addEventListener('click', newQuote);
 twitterBtn.addEventListener('click', tweetQuote);
-
+darkModeBtn.addEventListener('click', darkModeApply);
 getQuotes();
